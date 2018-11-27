@@ -1,0 +1,44 @@
+server:
+  port: 8081
+
+#配置数据源
+spring:
+  datasource:
+    name: mengtian
+    url: jdbc:mysql://192.168.40.14:3306/test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+#mybatis 配置
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.aissue.springboot.entity
+
+#分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+logging:
+  config: classpath:logback.xml
+
+
+
