@@ -1,6 +1,7 @@
 server:
   port: 8081
 
+
 #配置数据源
 spring:
   datasource:
@@ -24,6 +25,8 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+  profiles:
+    active: dev
 
 #mybatis 配置
 mybatis:

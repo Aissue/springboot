@@ -35,6 +35,10 @@ public class IndexController {
 
     @RequestMapping("/searchPage")
     public String searchPage(Integer pageNum,Integer pageSize){
+        Log.info("log info ...");
+        Log.error("log error ...");
+        Log.debug("log debug ...");
+        Log.warn("log warn ...");
         return JsonUtil.obj2StringPretty(studentService.selectPage(pageNum,pageSize));
     }
 }
