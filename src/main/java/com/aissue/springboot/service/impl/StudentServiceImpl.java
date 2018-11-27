@@ -3,6 +3,7 @@ package com.aissue.springboot.service.impl;
 import com.aissue.springboot.entity.Student;
 import com.aissue.springboot.mapper.StudentMapper;
 import com.aissue.springboot.service.StudentService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> selectAll() {
+        return studentMapper.selectAll();
+    }
+
+    @Override
+    public List<Student> selectPage(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
         return studentMapper.selectAll();
     }
 }

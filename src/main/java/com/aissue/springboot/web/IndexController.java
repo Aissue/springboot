@@ -27,4 +27,14 @@ public class IndexController {
     public String search(Integer id){
         return JsonUtil.obj2String(studentService.selectById(id));
     }
+
+    @RequestMapping("/searchAll")
+    public String searchALL(){
+        return JsonUtil.obj2StringPretty(studentService.selectAll());
+    }
+
+    @RequestMapping("/searchPage")
+    public String searchPage(Integer pageNum,Integer pageSize){
+        return JsonUtil.obj2StringPretty(studentService.selectPage(pageNum,pageSize));
+    }
 }

@@ -30,13 +30,6 @@ mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.aissue.springboot.entity
 
-#分页插件
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-
 logging:
   config: classpath:logback.xml
 
