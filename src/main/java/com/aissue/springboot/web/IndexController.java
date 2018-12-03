@@ -3,11 +3,9 @@ package com.aissue.springboot.web;
 import com.aissue.springboot.entity.Student;
 import com.aissue.springboot.service.StudentService;
 import com.aissue.springboot.utils.JsonUtil;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
