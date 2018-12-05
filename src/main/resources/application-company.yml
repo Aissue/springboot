@@ -25,8 +25,18 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
-  profiles:
-    active: dev
+  #activeMQ 配置
+  activemq:
+    user: admin
+    password: admin
+    broker-url: tcp://192.168.248.130:61616
+    pool:
+      enabled: true
+      max-connections: 10
+#activeMQ 队列
+queueName: publish.queue
+#activeMQ 主题
+topicName: publish.topic
 
 #mybatis 配置
 mybatis:
