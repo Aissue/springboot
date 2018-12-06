@@ -7,6 +7,15 @@ public class Student implements Serializable {
     public String name;
     public String gender;
     public Integer classNo;
+    public String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;

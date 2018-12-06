@@ -3,6 +3,7 @@ package com.aissue.springboot.web;
 import com.aissue.springboot.entity.Student;
 import com.aissue.springboot.service.StudentService;
 import com.aissue.springboot.utils.JsonUtil;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
