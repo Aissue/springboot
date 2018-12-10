@@ -19,13 +19,10 @@ public class SpringbootApplicationTests {
 
     @Test
     public void contextLoads() {
-        Set<String> set = new HashSet<>();
-        set.add("a");
-        set.add("b");
-        set.add("c");
-        set.add("d");
 
-        redisUtils.sSet("testSet",set);
+//        redisUtils.sSet("RESOURCES_aissue",new String[]{"/lua/a","/lua/b","/lua/c","/lua/d","/lua/e"});
+        String token = "1234567890";
+        redisUtils.set("TOKEN_aissue",token);
     }
 
 }
