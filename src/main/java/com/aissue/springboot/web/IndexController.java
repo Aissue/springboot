@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 public class IndexController {
     private static final Logger Log= LoggerFactory.getLogger(IndexController.class);
@@ -28,7 +30,9 @@ public class IndexController {
     }
 
     @RequestMapping("/searchAll")
-    public String searchALL(){
+    public String searchALL(HttpServletRequest httpServletRequest){
+        String uri = httpServletRequest.getRequestURI();
+        Log.info("==="+uri);
         return JsonUtil.obj2StringPretty(studentService.selectAll());
     }
 

@@ -74,17 +74,16 @@ public class HttpProxy {
                 if (reader != null) {
                     reader.close();
                 }
-            } catch (IOException e) {
-            }
-            try {
                 if (in != null) {
                     in.close();
                 }
+                if (out != null) {
+                    out.close();
+                }
+                if(httpsConn != null){
+                    httpsConn.disconnect();
+                }
             } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (out != null) {
-                out.close();
             }
         }
 
@@ -136,18 +135,18 @@ public class HttpProxy {
                 if (reader != null) {
                     reader.close();
                 }
-            } catch (IOException e) {
-            }
-            try {
                 if (in != null) {
                     in.close();
                 }
+                if (out != null) {
+                    out.close();
+                }
+                if(httpConn != null){
+                    httpConn.disconnect();
+                }
             } catch (IOException e) {
-                e.printStackTrace();
             }
-            if (out != null) {
-                out.close();
-            }
+
         }
 
         return result;

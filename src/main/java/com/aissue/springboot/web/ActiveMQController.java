@@ -12,13 +12,13 @@ import javax.jms.Topic;
 @RestController
 @RequestMapping("/activeMQ")
 public class ActiveMQController {
-    @Autowired
+    @Autowired(required = false)
     private JmsMessagingTemplate jms;
 
-    @Autowired
+    @Autowired(required = false)
     private Queue queue;
 
-    @Autowired
+    @Autowired(required = false)
     private Topic topic;
 
     @RequestMapping("/queue")
