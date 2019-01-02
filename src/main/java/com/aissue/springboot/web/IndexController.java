@@ -38,7 +38,7 @@ public class IndexController {
 
     @RequestMapping("/searchPage")
     public String searchPage(Integer pageNum,Integer pageSize){
-        Log.info("log info ...");
+        Log.info("log info{} ...",pageNum);
         Log.error("log error ...");
         Log.debug("log debug ...");
         Log.warn("log warn ...");

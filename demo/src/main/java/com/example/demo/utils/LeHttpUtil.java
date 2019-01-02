@@ -1,4 +1,4 @@
-package com.aissue.springboot.utils;
+package com.example.demo.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -65,7 +67,8 @@ public class LeHttpUtil {
         httpclient = HttpClients.custom().setConnectionManager(cm).setDefaultRequestConfig(defaultRequestConfig)
                 .build();
 
-        ThreadUtil.submit(new IdleConnectionMonitorThread(cm));
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        executorService.execute(new IdleConnectionMonitorThread(cm));
     }
 
     /**
@@ -244,8 +247,9 @@ public class LeHttpUtil {
             HttpPost httpPost = new HttpPost(url);
 
             StringEntity se = new StringEntity(content, charSet);
-            se.setContentType(APPLICATION_XML);
-            se.setContentEncoding(charSet);
+            se.setContentType("text/xml;charset="+charSet);
+            /*headers.put("Content-Type","text/xml;charset="+charset);
+            se.setContentEncoding(charSet);*/
             httpPost.setEntity(se);
             response = httpclient.execute(httpPost);
             HttpEntity entity2 = response.getEntity();
